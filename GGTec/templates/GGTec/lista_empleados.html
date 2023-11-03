@@ -1,0 +1,33 @@
+{% extends "ggtec/base.html" %}
+{% load static %}
+
+{% block title %} Buscar {% endblock %}
+
+{% block content %}
+
+<form method="get">
+    <label for="servicio">Seleccionar un servicio:</label>
+    <select name="servicio" id="servicio">
+        <option value="">Todos los servicios</option>
+        {% for servicio in servicios %}
+            <option value="{{ servicio.id }}" {% if servicio.id == request.GET.servicio %}selected{% endif %}>
+                {{ servicio.name }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filtrar</button>
+</form>
+
+<ul class="employee-list">
+    {% for empleado in object_list %}
+        <li>
+            <div class="employee-box">
+                <h3>{{ empleado.name }}</h3>
+                <p class="stars">{{ empleado.estrellas }}</p>
+                <p class="price">{{ empleado.precio }}</p>
+                <p class="empl">{{ empleado.contacto|safe }}</p>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

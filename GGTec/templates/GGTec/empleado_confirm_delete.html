@@ -1,0 +1,18 @@
+{% extends "ggtec/base.html" %}
+{% load static %}
+
+{% block title %} Eliminar reseña {% endblock %}
+
+{% block content %}
+{% include 'ggtec/includes/ggtec_menu.html' %}
+<main role="main">
+    <div class="container">
+        <div class="row mb-5 mt-3">
+            <form method="post">{% csrf_token %}
+                <p>¿Estás seguro de querer eliminar la reseña de "{{ object }}"?</p>
+                <input type="submit" value="Confirmar">
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

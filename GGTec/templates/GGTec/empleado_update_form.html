@@ -1,0 +1,36 @@
+{% extends "ggtec/base.html" %}
+{% load static %}
+
+{% block title %} Modificar reseña {% endblock %}
+
+{% block content %}
+
+{% include 'ggtec/includes/ggtec_menu.html' %}
+<main role="main">
+    <div class="container">
+        <div class="row mb-5 mt-3">
+            <div class="col-md-9 mx-auto">
+                {% if "ok" in request.GET %}
+                    <p style="color:green;">¡Reseña modificada correctamente!<br>
+                        <a href="{% url 'Reseñas' %}">
+                            Vuelve a las reseñas.
+                        </a>
+                    </p>
+                {% endif %}        
+                <form action="" method="post" enctype='multipart/form-data'>{% csrf_token %}
+                    {{ form.as_p }}
+
+                    {% if movie.image %}                              
+                    <img class="rounded float-left img-thumbnail img-fluid"  width="164" height="96" src="{{empleado.image.url}}"/>
+                    {% else %}
+                    <img class="rounded float-left img-thumbnail img-fluid"  width="164" height="96" src="{% static 'ggtec/images/empleado.jpg' %}">
+                    {% endif  %} 
+                    <div class="text-center">
+                    <input type="submit" class="btn btn-primary btn-block" value="Modificar reseña" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{%endblock%}

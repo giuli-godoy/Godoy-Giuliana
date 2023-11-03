@@ -1,0 +1,40 @@
+.employee-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+  }
+  
+  .employee-box {
+    border: 1px solid #ddd; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px; 
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .stars {
+    color: yellow;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .price {
+    color: green;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .empl {
+    color: black;
+    font-size: 16px;
+    margin: 5px 0;
+  }

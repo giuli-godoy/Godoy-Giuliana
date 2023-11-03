@@ -1,0 +1,29 @@
+{% extends "ggtec/base.html" %}
+{% load static %}
+
+{% block title %}
+Servicios
+{% endblock title %}
+
+{% block content %}
+<main role="main" class="container"><br>
+  <h3>{{ titulo }}</h3>
+  {% if servicio_list %}      
+      <div class="list-group">            
+      {% for servicio in servicio_list %}
+          <div class="card">
+            <h5 class="card-header">{{ servicio.name }} </h5>
+          </div>
+      {% endfor %}
+      </div>
+  {% else %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Servicios</h5>
+          <p class="card-text">Sin servicios ingresados en la Base de Datos del sitio.</p>
+          <a href="{% url 'home' %}" class="btn btn-primary">Inicio</a>
+        </div>
+    </div>
+  {% endif %}
+</main>
+{% endblock %}
